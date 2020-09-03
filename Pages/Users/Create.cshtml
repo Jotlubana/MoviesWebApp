@@ -1,0 +1,48 @@
+﻿@page
+@model MoviesWebApp.Pages.Users.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>UsersModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UsersModel.FirstName" class="control-label"></label>
+                <input asp-for="UsersModel.FirstName" class="form-control" />
+                <span asp-validation-for="UsersModel.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsersModel.LastName" class="control-label"></label>
+                <input asp-for="UsersModel.LastName" class="form-control" />
+                <span asp-validation-for="UsersModel.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsersModel.Email" class="control-label"></label>
+                <input asp-for="UsersModel.Email" class="form-control" />
+                <span asp-validation-for="UsersModel.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsersModel.AddressId" class="control-label"></label>
+                <select asp-for="UsersModel.AddressId" class ="form-control" asp-items="ViewBag.AddressId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

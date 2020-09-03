@@ -1,0 +1,40 @@
+﻿@page
+@model MoviesWebApp.Pages.Address.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AddressModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AddressModel.AddressId" />
+            <div class="form-group">
+                <label asp-for="AddressModel.Address" class="control-label"></label>
+                <input asp-for="AddressModel.Address" class="form-control" />
+                <span asp-validation-for="AddressModel.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AddressModel.PinCode" class="control-label"></label>
+                <input asp-for="AddressModel.PinCode" class="form-control" />
+                <span asp-validation-for="AddressModel.PinCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

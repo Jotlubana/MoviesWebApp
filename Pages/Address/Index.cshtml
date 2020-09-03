@@ -1,0 +1,42 @@
+﻿@page
+@model MoviesWebApp.Pages.Address.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressModel[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressModel[0].PinCode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AddressModel) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PinCode)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AddressId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AddressId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AddressId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
